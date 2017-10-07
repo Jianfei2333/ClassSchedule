@@ -1,0 +1,63 @@
+<!--pages/login/login.wxml-->
+<view class="weui-cells__title">注册信息</view>
+  
+<view class="weui-cells weui-cells_after-title">
+  
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">netId</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" bindinput="bind_input_Net_id"/>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cell__hd">
+      <view class="weui-label">密码</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" bindinput="bind_input_Password"/>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cell__hd">
+      <view class="weui-label">学号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" type="number" maxlength="8" bindinput="bind_input_Student_id"/>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cell__hd">
+      <view class="weui-label">姓名</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" bindinput="bind_input_Name"/>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input weui-cell_vcode">
+    <view class="weui-cell__hd">
+        <view class="weui-label">Email</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" bindinput="bind_input_Email"/>
+    </view>
+  </view>
+            
+</view>
+
+
+<view class="weui-btn-area">
+  <button class="weui-btn" type="primary" bindtap="register">注册</button>
+</view>
+
+<view class="weui-loadmore" wx:if="{{showLoading}}">
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore__tips">正在加载</view>
+</view>
+
+<view class="weui-toptips weui-toptips_success" wx:if="{{showDialogSuccess}}">成功</view>

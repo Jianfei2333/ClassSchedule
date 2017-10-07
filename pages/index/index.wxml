@@ -9,5 +9,7 @@
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
+    <button bindtap="register">click me to register!</button>
+    <button bindtap="logout">click me to logout!</button>
   </view>
 </view>

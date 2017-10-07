@@ -50,5 +50,32 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+    console.log(e.detail.userInfo)
+  },
+  register: function() {
+    let v =wx.getStorageSync('union_id')
+    console.log(v)
+  },
+  logout: function() {
+    console.log('you clicked logout')
+    wx.request({
+      url: 'https://iambanana.cn/api/user/logout',
+      method: 'POST',
+      data: {
+        Union_id: app.globalData.union_id
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res)
+        app.globalData.union_id = null
+        console.log(app.globalData.union_id)
+        wx.removeStorageSync('union_id')
+        wx.redirectTo({
+          url: '../login/login',
+        })
+      }
+    })
   }
 })

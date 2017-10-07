@@ -1,0 +1,17 @@
+/* pages/login/login.wxss */
+.button-sp-area{
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 60%;
+}
+.mini-btn{
+    margin-right: 5px;
+}
+
+page{
+    background-color: #FFFFFF;
+}
+
+.weui-toptips_success{
+  background-color:#25CE05;
+}
