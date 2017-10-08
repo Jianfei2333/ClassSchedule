@@ -1,19 +1,34 @@
-const formatTime = date => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
+const app = getApp()
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
-}
+/* 在每个页面js文件中引用util
+ * 可以使用封装的方法util.requests
+ * 参数为：即将post的后端url，成功的回调函数，发送的包
+ * 方法中会自动封装union_id，无需手动向包中添加
+ * 方法中会自动打印日志，无需手动设置输出
+ */
 
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
+const request = (url, func, ...e) => {
+  wx.request({
+    url: 'https://iambanana.cn' + url,
+    method: 'POST',
+    data: Object.assign({
+      Union_id: app.globalData.union_id,
+    }, ...e),
+    header: {
+      'content-type': 'application/json'
+    },
+    success: func,
+    complete: function (res) {
+      console.log('*******************COMPLETE*******************')
+      console.log(res)
+    },
+    fail: function (res) {
+      console.log('*******************FAIL*******************')
+      console.log(res)
+    }
+  })
 }
 
 module.exports = {
-  formatTime: formatTime
+  request: request,
 }

@@ -1,17 +1,16 @@
-//app.js
+
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-    
+
     let v = wx.getStorageSync('union_id')
+    let info = wx.getStorageSync('student_info')
     if (!v) {
       wx.redirectTo({
         url: './pages/login/login',
       })
     } else {
+      this.globalData.Student_info = info
+      this.globalData.Union_id = v
       wx.redirectTo({
         url: './pages/index/index',
       })
@@ -19,7 +18,7 @@ App({
     
   },
   globalData: {
-    userInfo: null,
-    union_id: null
+    Student_info: null,
+    Union_id: null
   }
 })

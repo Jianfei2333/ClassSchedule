@@ -1,81 +1,63 @@
-//index.js
-//获取应用实例
 const app = getApp()
+const util = require('../../utils/util')
 
 Page({
   data: {
     motto: 'Hello World',
-    userInfo: {},
+    Student_info: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
+
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
+
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
+    let info = app.globalData.Student_info
+    this.setData({
+      Student_info: info
+    })
+    let v = app.globalData.Union_id
+    if (!v) {
+      wx.redirectTo({
+        url: './pages/login/login',
       })
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-    console.log(e.detail.userInfo)
+
+  onShow: function () {
+    let v = app.globalData.Union_id
+    if (!v) {
+      wx.showLoading({
+        title: '请先登录'
+      })
+      setTimeout(()=>{
+        wx.hideLoading()
+      }, 3000)
+      wx.redirectTo({
+        url: '../login/login',
+      })
+    }
   },
-  register: function() {
-    let v =wx.getStorageSync('union_id')
-    console.log(v)
-  },
+
   logout: function() {
     console.log('you clicked logout')
-    wx.request({
-      url: 'https://iambanana.cn/api/user/logout',
-      method: 'POST',
-      data: {
-        Union_id: app.globalData.union_id
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res)
-        app.globalData.union_id = null
-        console.log(app.globalData.union_id)
-        wx.removeStorageSync('union_id')
-        wx.redirectTo({
-          url: '../login/login',
-        })
-      }
+    wx.showLoading({
+      title: '正在退出',
     })
-  }
+    util.request('/api/user/logout', function (res) {
+      app.globalData.Union_id = null
+      app.globalData.Student_info = null
+      wx.hideLoading()
+      wx.removeStorageSync('union_id')
+      wx.removeStorageSync('student_info')
+      wx.redirectTo({
+        url: '../login/login',
+      })
+    })
+  },
+
 })

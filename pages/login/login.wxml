@@ -1,27 +1,30 @@
 <!--pages/login/login.wxml-->
-<view class="weui-cells__title">注册信息</view>
+<view class="weui-cells__title">登陆</view>
   
 <view class="weui-cells weui-cells_after-title">
   
   <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">
-      <view class="weui-label">netId</view>
+      <view class="weui-label">NetId</view>
     </view>
     <view class="weui-cell__bd">
       <input class="weui-input" bindinput="bind_input_Net_id"/>
     </view>
   </view>
 
-  <view class="weui-cell weui-cell_input weui-cell_vcode">
+  <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">
       <view class="weui-label">密码</view>
     </view>
     <view class="weui-cell__bd">
-      <input class="weui-input" bindinput="bind_input_Password"/>
+      <input class="weui-input" bindinput="bind_input_Password" password="{{show_password}}"/>
+    </view>
+    <view class="weui-cell__ft">
+      <switch bindchange="change_hide_password"/>
     </view>
   </view>
 
-  <view class="weui-cell weui-cell_input weui-cell_vcode">
+  <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">
       <view class="weui-label">学号</view>
     </view>
@@ -30,7 +33,7 @@
     </view>
   </view>
 
-  <view class="weui-cell weui-cell_input weui-cell_vcode">
+  <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">
       <view class="weui-label">姓名</view>
     </view>
@@ -39,7 +42,7 @@
     </view>
   </view>
 
-  <view class="weui-cell weui-cell_input weui-cell_vcode">
+  <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">
         <view class="weui-label">Email</view>
     </view>
@@ -52,12 +55,9 @@
 
 
 <view class="weui-btn-area">
-  <button class="weui-btn" type="primary" bindtap="register">注册</button>
+  <button class="weui-btn" type="primary" bindtap="register" disabled="{{!Student_info.Net_id || !Student_info.Password}}">登陆</button>
 </view>
 
-<view class="weui-loadmore" wx:if="{{showLoading}}">
-  <view class="weui-loading"></view>
-  <view class="weui-loadmore__tips">正在加载</view>
-</view>
-
-<view class="weui-toptips weui-toptips_success" wx:if="{{showDialogSuccess}}">成功</view>
+<view class="weui-toptips weui-toptips_success" wx:if="{{showDialogSuccess}}">登陆成功，即将跳转</view>
+<view class="weui-toptips weui-toptips_warn" wx:if="{{showDialogFail}}">用户名或密码不正确</view>
+<view class="weui-toptips weui-toptips_warn" wx:if="{{showDialogError}}">注册失败,请稍后重试</view>

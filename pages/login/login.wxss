@@ -8,10 +8,6 @@
     margin-right: 5px;
 }
 
-page{
-    background-color: #FFFFFF;
-}
-
 .weui-toptips_success{
   background-color:#25CE05;
 }
