@@ -59,6 +59,13 @@ Page({
     }
   },
 
+  updateData:function(dataPack){
+    app.globalData.Union_id = dataPack.Union_id
+    app.globalData.Student_info = dataPack.Student_info
+    wx.setStorageSync("union_id", dataPack.Union_id)
+    wx.setStorageSync("student_info", dataPack.Student_info)
+  },
+
   register: function () {
     console.log('you clicked register')
     let p = this
@@ -78,14 +85,18 @@ Page({
             showDialogSuccess: false
           });
         }, 2000);
-        app.globalData.Union_id = res.data.content.Union_id
-        app.globalData.Student_info = p.data.Student_info
-        wx.setStorageSync("union_id", res.data.content.Union_id)
-        wx.setStorageSync("student_info", p.data.Student_info)
-        //wx.setStorageSync("student_info", res.data.content.Student_info)
-        wx.redirectTo({
-          url: '../index/index',
-        })
+        
+        p.updateData(res.data.content)
+        if (!res.data.content.Student_info.student_id) {
+          wx.switchTab({
+            url: '../modify/modify',
+          })
+        } else {
+          wx.switchTab({
+            url: '../index/index',
+          })
+        }
+        
 
       } else if (res.data.status === 'FAIL') {
         var that = p;
@@ -114,8 +125,9 @@ Page({
 
   onShow: function() {
     let v = app.globalData.Union_id
+    
     if (!!v) {
-      wx.redirectTo({
+      wx.switchTab({
         url: '../index/index',
       })
     }

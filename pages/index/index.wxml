@@ -5,6 +5,7 @@
     <text>{{Student_info.Student_id}}</text>
     <text>{{Student_info.Name}}</text>
     <text>{{Student_info.Email}}</text>
+    <text>{{Student_info.Password}}</text>
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>

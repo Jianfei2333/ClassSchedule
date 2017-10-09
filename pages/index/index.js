@@ -23,12 +23,13 @@ Page({
     let v = app.globalData.Union_id
     if (!v) {
       wx.redirectTo({
-        url: './pages/login/login',
+        url: '../login/login',
       })
     }
   },
 
   onShow: function () {
+    console.log(app.globalData)
     let v = app.globalData.Union_id
     if (!v) {
       wx.showLoading({

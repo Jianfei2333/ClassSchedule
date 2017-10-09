@@ -23,33 +23,6 @@
       <switch bindchange="change_hide_password"/>
     </view>
   </view>
-
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-      <view class="weui-label">学号</view>
-    </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" type="number" maxlength="8" bindinput="bind_input_Student_id"/>
-    </view>
-  </view>
-
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-      <view class="weui-label">姓名</view>
-    </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" bindinput="bind_input_Name"/>
-    </view>
-  </view>
-
-  <view class="weui-cell weui-cell_input">
-    <view class="weui-cell__hd">
-        <view class="weui-label">Email</view>
-    </view>
-    <view class="weui-cell__bd">
-      <input class="weui-input" bindinput="bind_input_Email"/>
-    </view>
-  </view>
             
 </view>
 
