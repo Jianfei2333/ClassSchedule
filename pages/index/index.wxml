@@ -1,11 +1,11 @@
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo">
-    <text>{{Student_info.Net_id}}</text>
-    <text>{{Student_info.Student_id}}</text>
-    <text>{{Student_info.Name}}</text>
-    <text>{{Student_info.Email}}</text>
-    <text>{{Student_info.Password}}</text>
+    <text>{{Student_info.net_id}}</text>
+    <text>{{Student_info.student_id}}</text>
+    <text>{{Student_info.name}}</text>
+    <text>{{Student_info.email}}</text>
+    <text>{{Student_info.password}}</text>
   </view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>

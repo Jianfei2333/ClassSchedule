@@ -1,1 +1,8 @@
 /* pages/modify/modify.wxss */
+
+.weui-input_disabled{
+  height:2.58823529em;
+  min-height:2.58823529em;
+  line-height:2.58823529em;
+  color:#9D9D9D;
+}

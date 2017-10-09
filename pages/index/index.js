@@ -29,7 +29,6 @@ Page({
   },
 
   onShow: function () {
-    console.log(app.globalData)
     let v = app.globalData.Union_id
     if (!v) {
       wx.showLoading({

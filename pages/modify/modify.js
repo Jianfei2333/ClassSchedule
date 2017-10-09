@@ -1,66 +1,74 @@
 // pages/modify/modify.js
+const app = getApp()
+const util = require('../../utils/util')
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    Student_info: null,
+    disable_change: true,
+    data_to_change: {
+      Name: null,
+      Student_id: null,
+      Email: null
+    },
+    inputClass: "weui-input_disabled"
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
+    this.setData({
+      Student_info: app.globalData.Student_info,
+      "data_to_change.Name": app.globalData.Student_info.name,
+      "data_to_change.Student_id": app.globalData.Student_info.student_id,
+      "data_to_change.Email": app.globalData.Student_info.email
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  switch_disable: function (e) {
+    console.log(e.detail.value)
+    this.setData({
+      disable_change: !e.detail.value,
+    })
+    if (!e.detail.value) {
+      this.setData({
+        inputClass: "weui-input_disabled"
+      })
+    } else {
+      this.setData({
+        inputClass: "weui-input"
+      })
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  bind_input_Student_id: function (e) {
+    this.setData({
+      "data_to_change.Student_id": e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  bind_input_Name: function (e) {
+    this.setData({
+      "data_to_change.Name": e.detail.value
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
+  bind_input_Email: function (e) {
+    this.setData({
+      "data_to_change.Email": e.detail.value
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
+  submit_modify: function () {
+    console.log('you clicked submit modify')
+    let p = this
+    wx.showLoading({
+      title: '正在修改',
+    })
+    /*
+    util.request('/api/user/modify', function(res){
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    }, this.data.data_to_change)
+    */
   }
+
 })

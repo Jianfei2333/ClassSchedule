@@ -28,25 +28,7 @@ Page({
       "Student_info.Password": e.detail.value
     })
   },
-
-  bind_input_Student_id:function(e) {
-    this.setData({
-      "Student_info.Student_id": e.detail.value
-    })
-  },
-
-  bind_input_Name:function(e) {
-    this.setData({
-      "Student_info.Name": e.detail.value
-    })
-  },
-
-  bind_input_Email:function(e) {
-    this.setData({
-      "Student_info.Email": e.detail.value
-    })
-  },
-
+  
   change_hide_password: function(e) {
     if (e.detail.value) {
       this.setData({

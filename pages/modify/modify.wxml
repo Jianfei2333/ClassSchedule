@@ -1,12 +1,34 @@
 <!--pages/modify/modify.wxml-->
-<text>pages/modify/modify.wxml</text>
+
+<view class="weui-cell weui-cell_input">
+  <view class="weui-cell__hd">
+    <view class="weui-label">允许修改</view>
+  </view>
+  <view class="weui-cell__bd">
+    <input class="weui-input" disabled="true"/>
+  </view>
+  <view class="weui-cell__ft">
+    <switch bindchange="switch_disable"/>
+  </view>
+</view>
+
+<view class="weui-cells weui-cells_after-title">
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">NetId</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input_disabled" value="{{Student_info.net_id}}" disabled='true'/>
+    </view>
+  </view>
 
   <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">
       <view class="weui-label">学号</view>
     </view>
     <view class="weui-cell__bd">
-      <input class="weui-input" type="number" maxlength="8" bindinput="bind_input_Student_id"/>
+      <input class="{{inputClass}}" type="number" maxlength="8" bindinput="bind_input_Student_id" value="{{Student_info.student_id}}" disabled='{{disable_change}}'/>
     </view>
   </view>
 
@@ -15,7 +37,7 @@
       <view class="weui-label">姓名</view>
     </view>
     <view class="weui-cell__bd">
-      <input class="weui-input" bindinput="bind_input_Name"/>
+      <input class="{{inputClass}}" bindinput="bind_input_Name" value="{{Student_info.name}}" disabled='{{disable_change}}'/>
     </view>
   </view>
 
@@ -24,6 +46,16 @@
         <view class="weui-label">Email</view>
     </view>
     <view class="weui-cell__bd">
-      <input class="weui-input" bindinput="bind_input_Email"/>
+      <input class="{{inputClass}}" bindinput="bind_input_Email" value="{{Student_info.email}}" disabled='{{disable_change}}'/>
     </view>
+  </view>
+
+</view>
+
+  <view class="weui-toptips weui-toptips_success" wx:if="{{showDialogSuccess}}">修改成功</view>
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showDialogFail}}">修改失败</view>
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showDialogError}}">修改失败，请稍后再试</view>
+
+  <view class="weui-btn-area">
+    <button class="weui-btn" type="primary" bindtap="submit_modify" disabled="{{disable_change}}">修改</button>
   </view>
