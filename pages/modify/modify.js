@@ -10,7 +10,8 @@ Page({
     data_to_change: {
       Name: null,
       Student_id: null,
-      Email: null
+      Email: null,
+      Password: null
     },
     inputClass: "weui-input_disabled"
   },
@@ -20,7 +21,8 @@ Page({
       Student_info: app.globalData.Student_info,
       "data_to_change.Name": app.globalData.Student_info.name,
       "data_to_change.Student_id": app.globalData.Student_info.student_id,
-      "data_to_change.Email": app.globalData.Student_info.email
+      "data_to_change.Email": app.globalData.Student_info.email,
+      "data_to_change.Password": app.globalData.Student_info.password
     })
   },
 
@@ -58,17 +60,53 @@ Page({
     })
   },
 
+  updateData: function(p) {
+    app.globalData.Student_info.name = p.data.data_to_change.Name
+    app.globalData.Student_info.email = p.data.data_to_change.Email
+    app.globalData.Student_info.student_id = p.data.data_to_change.Student_id
+    app.globalData.Student_info.Password = p.data.data_to_change.Password
+    wx.setStorageSync("student_info", app.globalData.Student_info)
+    p.setData({
+      Student_info: app.globalData.Student_info,
+    })
+  },
+
   submit_modify: function () {
     console.log('you clicked submit modify')
     let p = this
+    
     wx.showLoading({
-      title: '正在修改',
-    })
-    /*
+      title: '请稍后',
+    }) 
+    
     util.request('/api/user/modify', function(res){
-
+      if (res.data.status === 'SUCCESS') {
+        p.updateData(p)
+      } else if (res.data.status === 'FAIL'){
+        var that = p;
+        p.setData({
+          showDialogFail: true
+        });
+        setTimeout(function () {
+          that.setData({
+            showDialogFail: false
+          });
+        }, 2000);
+      } else {
+        var that = p;
+        p.setData({
+          showDialogError: true
+        });
+        setTimeout(function () {
+          that.setData({
+            showDialogError: false
+          });
+        }, 2000);
+      }
+      wx.hideLoading()
+      
     }, this.data.data_to_change)
-    */
+    
   }
 
 })

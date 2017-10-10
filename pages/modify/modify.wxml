@@ -23,12 +23,21 @@
     </view>
   </view>
 
-  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell weui-cell_input">
     <view class="weui-cell__hd">
       <view class="weui-label">学号</view>
     </view>
     <view class="weui-cell__bd">
-      <input class="{{inputClass}}" type="number" maxlength="8" bindinput="bind_input_Student_id" value="{{Student_info.student_id}}" disabled='{{disable_change}}'/>
+      <input class="{{(!!Student_info.student_id || disable_change)?'weui-input_disabled':'weui-input'}}" type="number" maxlength="8" bindinput="bind_input_Student_id" value="{{Student_info.student_id}}" disabled='{{!!Student_info.student_id || disable_change}}'/>
+    </view>
+  </view>
+
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+        <view class="weui-label">密码</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="{{inputClass}}" bindinput="bind_input_Password" value="{{Student_info.password}}" disabled='{{disable_change}}' password="{{disable_change}}"/>
     </view>
   </view>
 

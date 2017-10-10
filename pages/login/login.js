@@ -78,7 +78,6 @@ Page({
             url: '../index/index',
           })
         }
-        
 
       } else if (res.data.status === 'FAIL') {
         var that = p;

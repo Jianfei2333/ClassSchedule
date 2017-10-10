@@ -8,12 +8,11 @@ const app = getApp()
  */
 
 const request = (url, func, ...e) => {
+  let obj = Object.assign({ Union_id: app.globalData.Union_id }, ...e)
   wx.request({
     url: 'https://iambanana.cn' + url,
     method: 'POST',
-    data: Object.assign({
-      Union_id: app.globalData.union_id,
-    }, ...e),
+    data: obj,
     header: {
       'content-type': 'application/json'
     },

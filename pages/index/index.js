@@ -30,6 +30,9 @@ Page({
 
   onShow: function () {
     let v = app.globalData.Union_id
+    this.setData({
+      Student_info: app.globalData.Student_info
+    })
     if (!v) {
       wx.showLoading({
         title: '请先登录'
