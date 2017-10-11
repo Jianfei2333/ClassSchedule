@@ -1,10 +1,160 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <text>{{Student_info.net_id}}</text>
-    <text>{{Student_info.student_id}}</text>
-    <text>{{Student_info.name}}</text>
-    <text>{{Student_info.email}}</text>
-    <text>{{Student_info.password}}</text>
+<view class="page">
+  <view class="page__hd">
+    <view>{{Student_info.name}}</view>
+    <view class="page__desc">{{Student_info.student_id}}</view>
   </view>
+<scroll-view scroll-x="true" style="background-color:#FFF8DC">
+  <view class="page_schedule weui-flex">
+    
+    <view class="weui-flex_schedule_index">
+      <view class="weui-flex__index_item_hor"><view class="index-hor">Week</view></view>
+      <view class="weui-flex__index_item"><view class="index">1</view></view>
+      <view class="weui-flex__index_item"><view class="index">2</view></view>
+      <view class="weui-flex__index_item"><view class="index">3</view></view>
+      <view class="weui-flex__index_item"><view class="index">4</view></view>
+      <view class="weui-flex__index_item"><view class="index">5</view></view>
+      <view class="weui-flex__index_item"><view class="index">6</view></view>
+      <view class="weui-flex__index_item"><view class="index">7</view></view>
+      <view class="weui-flex__index_item"><view class="index">8</view></view>
+      <view class="weui-flex__index_item"><view class="index">9</view></view>
+      <view class="weui-flex__index_item"><view class="index">10</view></view>
+    </view>
+
+    <view class="weui-flex_schedule">
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周一 {{today}}</view></view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui1</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui2</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+      <view class="weui-flex__item">
+
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+    </view>
+
+    <view class="weui-flex_schedule">
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周二</view></view>
+            <view class="weui-flex__item">
+        <view class="placeholder">weui1</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui2</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+      <view class="weui-flex__item">
+
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+    </view>
+
+    <view class="weui-flex_schedule">
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周三</view></view>
+            <view class="weui-flex__item">
+        <view class="placeholder">weui1</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui2</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+      <view class="weui-flex__item">
+
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+    </view>
+
+    <view class="weui-flex_schedule">
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周四</view></view>
+            <view class="weui-flex__item">
+        <view class="placeholder">weui1</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui2</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+      <view class="weui-flex__item">
+
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+    </view>
+
+    <view class="weui-flex_schedule">
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周五</view></view>
+            <view class="weui-flex__item">
+        <view class="placeholder">weui1</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui2</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+      <view class="weui-flex__item">
+
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+    </view>
+
+    <view class="weui-flex_schedule">
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周六</view></view>
+            <view class="weui-flex__item">
+        <view class="placeholder">weui1</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui2</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+      <view class="weui-flex__item">
+
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+    </view>
+
+    <view class="weui-flex_schedule">
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周日</view></view>
+            <view class="weui-flex__item">
+        <view class="placeholder">weui1</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui2</view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+      <view class="weui-flex__item">
+
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">weui</view>
+      </view>
+    </view>
+
+    
+  </view>
+</scroll-view>
 </view>

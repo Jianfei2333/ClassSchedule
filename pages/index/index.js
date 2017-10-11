@@ -6,7 +6,8 @@ Page({
     motto: 'Hello World',
     Student_info: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    today: '10.11'
   },
 
   bindViewTap: function() {

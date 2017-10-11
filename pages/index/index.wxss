@@ -1,21 +1,66 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
+.page_schedule {
+  padding: 0 0px;
+}
+
+.placeholder{
+    margin: px;
+    padding: 0 10px;
+    text-align: center;
+    background-color: #CCCCFF;
+    height: 100px;
+    line-height: 2.3em;
+    color: #000000;
+    border-radius:7.5px;
+}
+
+.index{
+    padding: 0 0px;
+    text-align: center;
+    background-color: #EBEBEB;
+    height: 50px;
+    line-height: 2.3em;
+    color: #000000;
+}
+
+.index-hor{
+    padding: 0 0px;
+    text-align: center;
+    background-color: #EBEBEB;
+    height: 60px;
+    line-height: 2em;
+    color: #000000;
+}
+
+.weui-flex_schedule{
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.weui-flex_schedule_index{
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:flex;
+  flex-direction: column;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.weui-flex_shedule_index_hor {
+  display:-webkit-box;
+  display:-webkit-flex;
+  display:flex;
+  flex-direction: column;
 }
 
-.usermotto {
-  margin-top: 200px;
+.weui-flex__item{
+  height: 100px;
+}
+
+.weui-flex__index_item{
+  height: 50px;
+}
+
+.weui-flex__index_item_hor {
+  height: 60px;
 }
