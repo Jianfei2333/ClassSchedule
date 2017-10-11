@@ -46,21 +46,4 @@ Page({
     }
   },
 
-  logout: function() {
-    console.log('you clicked logout')
-    wx.showLoading({
-      title: '正在退出',
-    })
-    util.request('/api/user/logout', function (res) {
-      app.globalData.Union_id = null
-      app.globalData.Student_info = null
-      wx.hideLoading()
-      wx.removeStorageSync('union_id')
-      wx.removeStorageSync('student_info')
-      wx.redirectTo({
-        url: '../login/login',
-      })
-    })
-  },
-
 })

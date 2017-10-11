@@ -8,7 +8,7 @@
     <input class="weui-input" disabled="true"/>
   </view>
   <view class="weui-cell__ft">
-    <switch bindchange="switch_disable"/>
+    <switch checked="{{!disable_change}}" bindchange="switch_disable"/>
   </view>
 </view>
 

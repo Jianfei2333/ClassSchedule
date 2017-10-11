@@ -44,3 +44,7 @@ page{
     text-align: left;
     font-size: 14px;
 }
+
+.weui-toptips_success{
+  background-color:#25CE05;
+}

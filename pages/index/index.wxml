@@ -7,8 +7,4 @@
     <text>{{Student_info.email}}</text>
     <text>{{Student_info.password}}</text>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-    <button bindtap="logout">click me to logout!</button>
-  </view>
 </view>

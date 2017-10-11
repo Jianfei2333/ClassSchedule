@@ -13,10 +13,13 @@ Page({
       Email: null,
       Password: null
     },
-    inputClass: "weui-input_disabled"
+    inputClass: "weui-input_disabled",
+    showDialogSuccess: false,
+    showDialogFail: false,
+    showDialogError: false,
   },
 
-  onLoad: function (options) {
+  onShow: function (options) {
     this.setData({
       Student_info: app.globalData.Student_info,
       "data_to_change.Name": app.globalData.Student_info.name,
@@ -28,15 +31,14 @@ Page({
 
   switch_disable: function (e) {
     console.log(e.detail.value)
-    this.setData({
-      disable_change: !e.detail.value,
-    })
     if (!e.detail.value) {
       this.setData({
+        disable_change: true,
         inputClass: "weui-input_disabled"
       })
     } else {
       this.setData({
+        disable_change: false,
         inputClass: "weui-input"
       })
     }
@@ -68,6 +70,8 @@ Page({
     wx.setStorageSync("student_info", app.globalData.Student_info)
     p.setData({
       Student_info: app.globalData.Student_info,
+      disable_change: true,
+      inputClass: "weui-input_disabled",
     })
   },
 
@@ -82,6 +86,16 @@ Page({
     util.request('/api/user/modify', function(res){
       if (res.data.status === 'SUCCESS') {
         p.updateData(p)
+        
+        p.setData({
+          showDialogSuccess: true
+        });
+        console.log(p.data.showDialogSuccess)
+        setTimeout(function () {
+          p.setData({
+            showDialogSuccess: false
+          })
+        }, 2000)
       } else if (res.data.status === 'FAIL'){
         var that = p;
         p.setData({

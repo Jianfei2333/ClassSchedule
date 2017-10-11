@@ -1,0 +1,13 @@
+<!--pages/settings/settings.wxml-->
+
+<view class="page__bd">
+  <view class="weui-cells__title">info</view>
+  <view class="weui-cells weui-cells_after-title">
+    <navigator url="../modify/modify" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">修改个人信息</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+  </view>
+
+  <button class="weui-btn" type="warn" bindtap="bind_tap_logout">退出登录</button>
+</view>
