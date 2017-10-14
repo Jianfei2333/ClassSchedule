@@ -3,7 +3,14 @@
   <view class="page__hd">
     <view>{{Student_info.name}}</view>
     <view class="page__desc">{{Student_info.student_id}}</view>
+    <picker mode="multiSelector" bindchange="change_selector" value="{{year_semester}}" range="{{semester_picker}}">
+    <view class="picker">
+      {{semester_picker[0][year_semester[0]]}}年{{semester_picker[1][year_semester[1]]}}学期
+    </view>
+  </picker>
+
   </view>
+  
 <scroll-view scroll-x="true" style="background-color:#FFF8DC">
   <view class="page_schedule weui-flex">
     
@@ -22,7 +29,7 @@
     </view>
 
     <view class="weui-flex_schedule">
-      <view class="weui-flex__index_item_hor"><view class="index-hor">周一 {{today}}</view></view>
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周一 {{date[0]}}</view></view>
       <view class="weui-flex__item">
         <view class="placeholder">weui1</view>
       </view>
@@ -41,7 +48,7 @@
     </view>
 
     <view class="weui-flex_schedule">
-      <view class="weui-flex__index_item_hor"><view class="index-hor">周二</view></view>
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周二 {{date[1]}}</view></view>
             <view class="weui-flex__item">
         <view class="placeholder">weui1</view>
       </view>
@@ -60,7 +67,7 @@
     </view>
 
     <view class="weui-flex_schedule">
-      <view class="weui-flex__index_item_hor"><view class="index-hor">周三</view></view>
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周三 {{date[2]}}</view></view>
             <view class="weui-flex__item">
         <view class="placeholder">weui1</view>
       </view>
@@ -79,7 +86,7 @@
     </view>
 
     <view class="weui-flex_schedule">
-      <view class="weui-flex__index_item_hor"><view class="index-hor">周四</view></view>
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周四 {{date[3]}}</view></view>
             <view class="weui-flex__item">
         <view class="placeholder">weui1</view>
       </view>
@@ -98,7 +105,7 @@
     </view>
 
     <view class="weui-flex_schedule">
-      <view class="weui-flex__index_item_hor"><view class="index-hor">周五</view></view>
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周五 {{date[4]}}</view></view>
             <view class="weui-flex__item">
         <view class="placeholder">weui1</view>
       </view>
@@ -117,7 +124,7 @@
     </view>
 
     <view class="weui-flex_schedule">
-      <view class="weui-flex__index_item_hor"><view class="index-hor">周六</view></view>
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周六 {{date[5]}}</view></view>
             <view class="weui-flex__item">
         <view class="placeholder">weui1</view>
       </view>
@@ -136,7 +143,7 @@
     </view>
 
     <view class="weui-flex_schedule">
-      <view class="weui-flex__index_item_hor"><view class="index-hor">周日</view></view>
+      <view class="weui-flex__index_item_hor"><view class="index-hor">周日 {{date[6]}}</view></view>
             <view class="weui-flex__item">
         <view class="placeholder">weui1</view>
       </view>
